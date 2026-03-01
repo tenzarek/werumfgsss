@@ -1,4 +1,4 @@
-
+print("Hello World!")
 print("Hello World!")
 print("Hello World!")
 print("Hello World!")
@@ -286,7 +286,7 @@ local Window = Rayfield:CreateWindow({
 	}
 })
 
-local MainTab = Window:CreateTab("🎯 Aimbot", nil) -- Title, Image
+local MainTab = Window:CreateTab("🎯 Aimbob", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("🏡 Mainkraft")
 
 Rayfield:Notify({
@@ -297,30 +297,27 @@ Rayfield:Notify({
 })
 
 local Button = MainTab:CreateButton({
-	Name = "ozuremoded",
+	Name = "аимбо азуре модед",
 	Callback = function()
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
 	end,
 })
 
 local Button = MainTab:CreateButton({
-	Name = "chantz",
+	Name = "Button",
 	Callback = function()     
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/vexalotl/Chants/refs/heads/main/main"))()
 	end,
 })
 
 local Button = MainTab:CreateButton({
-	Name = "eirhab",
+	Name = "Button",
 	Callback = function()     
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
 	end,
 })
 
 local Button = MainTab:CreateButton({
-	Name = "munuks hab",
+	Name = "Button",
 	Callback = function()     
-		loadstring(game:HttpGet("https://gist.githubusercontent.com/MoonDevRed/bab15fe38d5822339e075c51c1b74fed/raw/9fa5e7839d7fcf2240955a6ff90397e746796c98/MoonuxHub(V1.2)%20Updated%20.lua"))()
 	end,
 })
 
@@ -341,7 +338,7 @@ local Button = MainTab:CreateButton({
 })
 
 
-local MainTab = Window:CreateTab("🗡️ Rage", nil) -- Title, Image
+local MainTab = Window:CreateTab("🗡️ legit", nil) -- Title, Image
 local MainSection = MainTab:CreateSection("🌀 Telefon")
 
 local Button = MainTab:CreateButton({
@@ -684,8 +681,8 @@ local Button = MainTab:CreateButton({
 		-- Параметры настройки
 local DECAL_ID = "85374884354999"  -- ID декалки
 local MOVE_SPEED = 200               -- Пикселей в секунду
-local SIZE_X = 150                    -- Ширина изображения
-local SIZE_Y = 100                    -- Высота изображения
+local SIZE_X = 350                    -- Ширина изображения
+local SIZE_Y = 300                    -- Высота изображения
 
 -- Получаем сервисы
 local Players = game:GetService("Players")
