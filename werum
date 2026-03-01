@@ -665,6 +665,318 @@ local Button = MainTab:CreateButton({
 })
 
 local Button = MainTab:CreateButton({
+	Name = "КАЛЬкулятор",
+	Callback = function()     
+		-- Создание GUI для калькулятора
+local player = game:GetService("Players").LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "CalculatorGUI"
+gui.Parent = player:WaitForChild("PlayerGui")
+
+-- Основное окно калькулятора
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 300, 0, 400)
+mainFrame.Position = UDim2.new(0.5, -150, 0.5, -200)
+mainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+mainFrame.BackgroundTransparency = 0.1
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Parent = gui
+
+-- Скругление углов
+local UICorner = Instance.new("UICorner")
+UICorner.CornerRadius = UDim.new(0, 10)
+UICorner.Parent = mainFrame
+
+-- Заголовок окна
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0, 30)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+titleLabel.Text = "Калькулятор"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextSize = 16
+titleLabel.Parent = mainFrame
+
+-- Поле ввода/вывода
+local display = Instance.new("TextBox")
+display.Size = UDim2.new(1, -20, 0, 50)
+display.Position = UDim2.new(0, 10, 0, 40)
+display.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+display.TextColor3 = Color3.fromRGB(255, 255, 255)
+display.Font = Enum.Font.GothamBlack
+display.TextSize = 24
+display.Text = "0"
+display.TextXAlignment = Enum.TextXAlignment.Right
+display.ClearTextOnFocus = false
+display.Parent = mainFrame
+
+local displayCorner = Instance.new("UICorner")
+displayCorner.CornerRadius = UDim.new(0, 5)
+displayCorner.Parent = display
+
+-- Функция создания кнопок
+local function createButton(text, posX, posY, color, textColor)
+    local button = Instance.new("TextButton")
+    button.Size = UDim2.new(0, 60, 0, 50)
+    button.Position = UDim2.new(0, 15 + (posX * 70), 0, 100 + (posY * 60))
+    button.BackgroundColor3 = color
+    button.TextColor3 = textColor
+    button.Font = Enum.Font.GothamBold
+    button.TextSize = 20
+    button.Text = text
+    button.Parent = mainFrame
+    
+    local buttonCorner = Instance.new("UICorner")
+    buttonCorner.CornerRadius = UDim.new(0, 5)
+    buttonCorner.Parent = button
+    
+    return button
+end
+
+-- Переменные для вычислений
+local currentInput = ""
+local operator = ""
+local firstNumber = 0
+local waitingForSecond = false
+
+-- Функция обновления дисплея
+local function updateDisplay(value)
+    display.Text = tostring(value)
+end
+
+-- Функция обработки нажатия цифр
+local function onNumberClick(number)
+    if waitingForSecond then
+        currentInput = number
+        waitingForSecond = false
+    else
+        if currentInput == "0" then
+            currentInput = number
+        else
+            currentInput = currentInput .. number
+        end
+    end
+    updateDisplay(currentInput)
+end
+
+-- Функция обработки операторов
+local function onOperatorClick(op)
+    if currentInput ~= "" then
+        if firstNumber == 0 then
+            firstNumber = tonumber(currentInput)
+        elseif operator ~= "" then
+            -- Выполнить предыдущую операцию
+            local secondNumber = tonumber(currentInput)
+            if operator == "+" then
+                firstNumber = firstNumber + secondNumber
+            elseif operator == "-" then
+                firstNumber = firstNumber - secondNumber
+            elseif operator == "*" then
+                firstNumber = firstNumber * secondNumber
+            elseif operator == "/" then
+                if secondNumber ~= 0 then
+                    firstNumber = firstNumber / secondNumber
+                else
+                    updateDisplay("Ошибка")
+                    currentInput = ""
+                    firstNumber = 0
+                    operator = ""
+                    waitingForSecond = false
+                    return
+                end
+            end
+            updateDisplay(firstNumber)
+        end
+        operator = op
+        currentInput = ""
+        waitingForSecond = true
+    end
+end
+
+-- Функция вычисления результата
+local function onEqualsClick()
+    if operator ~= "" and currentInput ~= "" then
+        local secondNumber = tonumber(currentInput)
+        local result = 0
+        
+        if operator == "+" then
+            result = firstNumber + secondNumber
+        elseif operator == "-" then
+            result = firstNumber - secondNumber
+        elseif operator == "*" then
+            result = firstNumber * secondNumber
+        elseif operator == "/" then
+            if secondNumber ~= 0 then
+                result = firstNumber / secondNumber
+            else
+                updateDisplay("Ошибка")
+                currentInput = ""
+                firstNumber = 0
+                operator = ""
+                waitingForSecond = false
+                return
+            end
+        end
+        
+        -- Округление до 2 знаков
+        result = math.floor(result * 100 + 0.5) / 100
+        updateDisplay(result)
+        
+        currentInput = tostring(result)
+        firstNumber = result
+        operator = ""
+        waitingForSecond = true
+    end
+end
+
+-- Функция очистки
+local function onClearClick()
+    currentInput = ""
+    operator = ""
+    firstNumber = 0
+    waitingForSecond = false
+    updateDisplay("0")
+end
+
+-- Функция удаления последнего символа
+local function onBackspaceClick()
+    if currentInput ~= "" and currentInput ~= "0" then
+        currentInput = string.sub(currentInput, 1, #currentInput - 1)
+        if currentInput == "" then
+            currentInput = "0"
+        end
+        updateDisplay(currentInput)
+    end
+end
+
+-- Функция для десятичной точки
+local function onDecimalClick()
+    if not string.find(currentInput, "%.") then
+        if currentInput == "" then
+            currentInput = "0."
+        else
+            currentInput = currentInput .. "."
+        end
+        updateDisplay(currentInput)
+    end
+end
+
+-- Цвета кнопок
+local numberColor = Color3.fromRGB(60, 60, 60)
+local operatorColor = Color3.fromRGB(255, 140, 0)
+local functionColor = Color3.fromRGB(80, 80, 80)
+local textColor = Color3.fromRGB(255, 255, 255)
+
+-- Создание цифровых кнопок
+local buttons = {}
+for i = 1, 9 do
+    local row = math.floor((i-1) / 3)
+    local col = (i-1) % 3
+    buttons[i] = createButton(tostring(i), col, row, numberColor, textColor)
+    buttons[i].MouseButton1Click:Connect(function()
+        onNumberClick(tostring(i))
+    end)
+end
+
+-- Кнопка 0
+buttons[0] = createButton("0", 0, 3, numberColor, textColor)
+buttons[0].MouseButton1Click:Connect(function()
+    onNumberClick("0")
+end)
+
+-- Операторы
+local addBtn = createButton("+", 3, 0, operatorColor, textColor)
+addBtn.MouseButton1Click:Connect(function()
+    onOperatorClick("+")
+end)
+
+local subtractBtn = createButton("-", 3, 1, operatorColor, textColor)
+subtractBtn.MouseButton1Click:Connect(function()
+    onOperatorClick("-")
+end)
+
+local multiplyBtn = createButton("*", 3, 2, operatorColor, textColor)
+multiplyBtn.MouseButton1Click:Connect(function()
+    onOperatorClick("*")
+end)
+
+local divideBtn = createButton("/", 3, 3, operatorColor, textColor)
+divideBtn.MouseButton1Click:Connect(function()
+    onOperatorClick("/")
+end)
+
+-- Функциональные кнопки
+local clearBtn = createButton("C", 0, 4, functionColor, textColor)
+clearBtn.MouseButton1Click:Connect(onClearClick)
+
+local backspaceBtn = createButton("⌫", 1, 4, functionColor, textColor)
+backspaceBtn.MouseButton1Click:Connect(onBackspaceClick)
+
+local decimalBtn = createButton(".", 2, 4, numberColor, textColor)
+decimalBtn.MouseButton1Click:Connect(onDecimalClick)
+
+local equalsBtn = createButton("=", 3, 4, operatorColor, textColor)
+equalsBtn.MouseButton1Click:Connect(onEqualsClick)
+
+-- Кнопка закрытия
+local closeBtn = Instance.new("TextButton")
+closeBtn.Size = UDim2.new(0, 30, 0, 30)
+closeBtn.Position = UDim2.new(1, -40, 0, 5)
+closeBtn.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+closeBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeBtn.Font = Enum.Font.GothamBold
+closeBtn.TextSize = 16
+closeBtn.Text = "X"
+closeBtn.Parent = mainFrame
+
+local closeCorner = Instance.new("UICorner")
+closeCorner.CornerRadius = UDim.new(0, 5)
+closeCorner.Parent = closeBtn
+
+closeBtn.MouseButton1Click:Connect(function()
+    gui:Destroy()
+end)
+
+-- Функция для перемещения окна
+local dragToggle = nil
+local dragSpeed = 0.25
+local dragStart = nil
+local startPos = nil
+
+local function updateInput(input)
+    local delta = input.Position - dragStart
+    local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    game:GetService("TweenService"):Create(mainFrame, TweenInfo.new(dragSpeed), {Position = position}):Play()
+end
+
+mainFrame.InputBegan:Connect(function(input)
+    if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+        dragToggle = true
+        dragStart = input.Position
+        startPos = mainFrame.Position
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragToggle = false
+            end
+        end)
+    end
+end)
+
+mainFrame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        if dragToggle then
+            updateInput(input)
+        end
+    end
+end)
+
+print("Калькулятор загружен! Нажмите X для закрытия.")
+	end,
+})
+
+local Button = MainTab:CreateButton({
 	Name = "крашнуть нахуй игру",
 	Callback = function()     
 		-- ⚠️ ЭКСТРЕМАЛЬНО ОПАСНЫЙ СКРИПТ! ⚠️
