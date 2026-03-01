@@ -1,0 +1,1424 @@
+
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+print("Hello World!")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",false))()
+-- Простой передвигаемый водяной знак
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "SimpleWatermark"
+screenGui.ResetOnSpawn = false
+
+local success, errorMsg = pcall(function()
+	screenGui.Parent = game:GetService("CoreGui")
+end)
+
+if not success then
+	screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+end
+
+local watermark = Instance.new("Frame")
+watermark.Size = UDim2.new(0, 250, 0, 60)
+watermark.Position = UDim2.new(0.5, -125, 0.1, 0)
+watermark.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+watermark.BackgroundTransparency = 0.4
+watermark.BorderSizePixel = 0
+watermark.Active = true
+watermark.Draggable = true
+watermark.Parent = screenGui
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10)
+corner.Parent = watermark
+
+local textLabel = Instance.new("TextLabel")
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.BackgroundTransparency = 1
+textLabel.Text = "werumfgsss hаб"
+textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+textLabel.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+textLabel.TextStrokeTransparency = 0.5
+textLabel.Font = Enum.Font.GothamBold
+textLabel.TextSize = 30
+textLabel.TextScaled = true
+textLabel.Parent = watermark
+
+print("Водяной знак активирован! (werumfgsss)")
+
+--  Здесь разместите остальной код вашего скрипта,
+--  который будет выполняться только для whitelisted пользователей.
+
+-- Пример кода:
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+	Name = "werumfgsss hub",
+	Icon = "cat", 
+	LoadingTitle = "by skaneexx",
+	LoadingSubtitle = "Loading...",
+	Theme = "Defolt", 
+	DisableRayfieldPrompts = false,
+	DisableBuildWarnings = false, 
+	ConfigurationSaving = {
+		Enabled = true,
+		FolderName = chkaneks,
+		FileName = "Big werum"
+	},
+	Discord = {
+		Enabled = true, -- Prompt the user to join your Discord server if their executor supports it
+		Invite = "M2hZksBxbx", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+		RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+	},
+
+	KeySystem = true, -- Set this to true to use our key system
+	KeySettings = {
+		Title = "werumfgsss key siski",
+		Subtitle = "Key System",
+		Note = "Get Key discord.gg/M2hZksBxbx", -- Use this to tell the user how to get a key
+		FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+		Key = {"svin"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+	}
+})
+
+local MainTab = Window:CreateTab("🎯 Aimbot", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🏡 Mainkraft")
+
+Rayfield:Notify({
+	Title = "Welcum!",
+	Content = "Добро пожаловать в wrumfgsss HUB :)",
+	Duration = 3,
+	Image = 14577807372,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "ozuremoded",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "chantz",
+	Callback = function()     
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/vexalotl/Chants/refs/heads/main/main"))()
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "eirhab",
+	Callback = function()     
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua"))()
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "munuks hab",
+	Callback = function()     
+		loadstring(game:HttpGet("https://gist.githubusercontent.com/MoonDevRed/bab15fe38d5822339e075c51c1b74fed/raw/9fa5e7839d7fcf2240955a6ff90397e746796c98/MoonuxHub(V1.2)%20Updated%20.lua"))()
+	end,
+})
+
+local MainSection = MainTab:CreateSection("🏡 Custom AimBot")
+
+local Button = MainTab:CreateButton({
+	Name = "затролить сука",
+	Callback = function()     
+		local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+		NotificationLibrary:SendNotification("Warning", "Что мамке после хуя до и после не роботают фантомы на лице у  (ник) папа выебал те мать и сказал до и после не роботают я это ты в хуй говори после хуя я это ты мамке под ником ники мать все Ник  он щя в хуй мамке скажет на лице покажет сказку расскажет соврет в хуй отца отрицания мать твою убить до и после хуй те в рот я это ты мамке под силового хуя у тя во рту", 3)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Button",
+	Callback = function()     
+	end,
+})
+
+
+local MainTab = Window:CreateTab("🗡️ Rage", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🌀 Telefon")
+
+local Button = MainTab:CreateButton({
+	Name = "какая то нахуй не нужная тпшка блять",
+	Callback = function()     
+		local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+		NotificationLibrary:SendNotification("Success", "Тп на 50 стучто мне твоя мама шлюха в зеркало сидя на пенисе я не твоя мама вперёд был активирован! Нажми на V", 5)        
+		local player = game.Players.LocalPlayer
+		local character = player.Character or player.CharacterAdded:Wait()
+		local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+		local teleportDistance = 50
+
+		local function onInputBegan(input, gameProcessedEvent)
+			if gameProcessedEvent then return end
+			if input.KeyCode == Enum.KeyCode.V then
+				local currentPosition = humanoidRootPart.Position
+				local forwardDirection = humanoidRootPart.CFrame.LookVector
+				local newPosition = currentPosition + forwardDirection * teleportDistance
+				humanoidRootPart.CFrame = CFrame.new(newPosition)
+			end
+		end
+
+		game:GetService("UserInputService").InputBegan:Connect(onInputBegan)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "тоже бля хуйня кака я то",
+	Callback = function()     
+		local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+		NotificationLibrary:SendNotification("Success", "Тп на 500 студов вверх был активирован! Нажми на B что мне твоя мама шлюха в зеркало сидя на пенисе я не твоя мама", 5)
+		local player = game.Players.LocalPlayer
+		local offsetY = 3000000000
+		local offsetX = -1000000000
+
+		game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+			if gameProcessedEvent then return end  -- Игнорировать, если событие уже обработано игрой
+
+			if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.B then
+				if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+					local character = player.Character
+					local rootPart = character.HumanoidRootPart
+					local currentPosition = rootPart.Position
+
+					-- Новая позиция с добавлением смещения
+					local newPosition = currentPosition + Vector3.new(offsetX, offsetY, 0)
+					rootPart.CFrame = CFrame.new(newPosition)
+				end
+			end
+		end)
+
+		local player = game.Players.LocalPlayer
+		local offsetY = 200
+		local offsetX = -10  
+
+		game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessedEvent)
+			if gameProcessedEvent then return end  -- Игнорировать, если событие уже обработано игрой
+
+			if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.B then
+				if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+					local character = player.Character
+					local rootPart = character.HumanoidRootPart
+					local currentPosition = rootPart.Position
+
+					-- Новая позиция с добавлением смещения
+					local newPosition = currentPosition + Vector3.new(offsetX, offsetY, 0)
+					rootPart.CFrame = CFrame.new(newPosition)
+				end
+			end
+		end)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("🚫 Anti-Cum")
+
+local Button = MainTab:CreateButton({
+	Name = "antik-Hed",
+	Callback = function()     
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Gazer-Ha/Valiant-Ui-Lib-Gazed-/refs/heads/main/Head%20Pack'))()
+
+		local Workspace = game:GetService("Workspace")
+		local CoreGui = game:GetService("CoreGui")
+		local Players = game:GetService("Players")
+		local Noclip = Instance.new("ScreenGui")
+		local BG = Instance.new("Frame")
+		local Title = Instance.new("TextLabel")
+		local Toggle = Instance.new("TextButton")
+		local StatusPF = Instance.new("TextLabel")
+		local Status = Instance.new("TextLabel")
+		local Credit = Instance.new("TextLabel")
+		local Plr = Players.LocalPlayer
+		local Clipon = false
+
+		Noclip.Name = "Noclip"
+		Noclip.Parent = game.CoreGui
+
+		BG.Name = "BG"
+		BG.Parent = Noclip
+		BG.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
+		BG.BorderColor3 = Color3.new(0.0588235, 0.0588235, 0.0588235)
+		BG.BorderSizePixel = 2
+		BG.Position = UDim2.new(0.149479166, 0, 0.82087779, 0)
+		BG.Size = UDim2.new(0, 210, 0, 127)
+		BG.Active = true
+		BG.Draggable = true
+
+		Title.Name = "Title"
+		Title.Parent = BG
+		Title.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+		Title.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+		Title.BorderSizePixel = 2
+		Title.Size = UDim2.new(0, 210, 0, 33)
+		Title.Font = Enum.Font.Highway
+		Title.Text = "Noclip"
+		Title.TextColor3 = Color3.new(1, 1, 1)
+		Title.FontSize = Enum.FontSize.Size32
+		Title.TextSize = 30
+		Title.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+		Title.TextStrokeTransparency = 0
+
+		Toggle.Parent = BG
+		Toggle.BackgroundColor3 = Color3.new(0.266667, 0.00392157, 0.627451)
+		Toggle.BorderColor3 = Color3.new(0.180392, 0, 0.431373)
+		Toggle.BorderSizePixel = 2
+		Toggle.Position = UDim2.new(0.152380958, 0, 0.374192119, 0)
+		Toggle.Size = UDim2.new(0, 146, 0, 36)
+		Toggle.Font = Enum.Font.Highway
+		Toggle.FontSize = Enum.FontSize.Size28
+		Toggle.Text = "Toggle"
+		Toggle.TextColor3 = Color3.new(1, 1, 1)
+		Toggle.TextSize = 25
+		Toggle.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+		Toggle.TextStrokeTransparency = 0
+
+		StatusPF.Name = "StatusPF"
+		StatusPF.Parent = BG
+		StatusPF.BackgroundColor3 = Color3.new(1, 1, 1)
+		StatusPF.BackgroundTransparency = 1
+		StatusPF.Position = UDim2.new(0.314285725, 0, 0.708661377, 0)
+		StatusPF.Size = UDim2.new(0, 56, 0, 20)
+		StatusPF.Font = Enum.Font.Highway
+		StatusPF.FontSize = Enum.FontSize.Size24
+		StatusPF.Text = "Status:"
+		StatusPF.TextColor3 = Color3.new(1, 1, 1)
+		StatusPF.TextSize = 20
+		StatusPF.TextStrokeColor3 = Color3.new(0.333333, 0.333333, 0.333333)
+		StatusPF.TextStrokeTransparency = 0
+		StatusPF.TextWrapped = true
+
+		Status.Name = "Status"
+		Status.Parent = BG
+		Status.BackgroundColor3 = Color3.new(1, 1, 1)
+		Status.BackgroundTransparency = 1
+		Status.Position = UDim2.new(0.580952346, 0, 0.708661377, 0)
+		Status.Size = UDim2.new(0, 56, 0, 20)
+		Status.Font = Enum.Font.Highway
+		Status.FontSize = Enum.FontSize.Size14
+		Status.Text = "off"
+		Status.TextColor3 = Color3.new(0.666667, 0, 0)
+		Status.TextScaled = true
+		Status.TextSize = 14
+		Status.TextStrokeColor3 = Color3.new(0.180392, 0, 0.431373)
+		Status.TextWrapped = true
+		Status.TextXAlignment = Enum.TextXAlignment.Left
+
+		Credit.Name = "Credit"
+		Credit.Parent = BG
+		Credit.BackgroundColor3 = Color3.new(1, 1, 1)
+		Credit.BackgroundTransparency = 1
+		Credit.Position = UDim2.new(0.195238099, 0, 0.866141737, 0)
+		Credit.Size = UDim2.new(0, 128, 0, 17)
+		Credit.Font = Enum.Font.SourceSans
+		Credit.FontSize = Enum.FontSize.Size18
+		Credit.Text = "Created by FFFadal"
+		Credit.TextColor3 = Color3.new(1, 1, 1)
+		Credit.TextSize = 16
+		Credit.TextStrokeColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+		Credit.TextStrokeTransparency = 0
+		Credit.TextWrapped = true
+
+		Toggle.MouseButton1Click:connect(function()
+			if Status.Text == "off" then
+				Clipon = true
+				Status.Text = "on"
+				Status.TextColor3 = Color3.new(0,185,0)
+				Stepped = game:GetService("RunService").Stepped:Connect(function()
+					if not Clipon == false then
+						for a, b in pairs(Workspace:GetChildren()) do
+							if b.Name == Plr.Name then
+								for i, v in pairs(Workspace[Plr.Name]:GetChildren()) do
+									if v:IsA("BasePart") then
+										v.CanCollide = false
+									end end end end
+					else
+						Stepped:Disconnect()
+					end
+				end)
+			elseif Status.Text == "on" then
+				Clipon = false
+				Status.Text = "off"
+				Status.TextColor3 = Color3.new(170,0,0)
+			end
+		end)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "100 studs daun ха неработет сосите",
+	Callback = function()     
+		local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+		NotificationLibrary:SendNotification("Warning", "Что мамке после хуя до и после не роботают фантомы на лице у  (ник) папа выебал те мать и сказал до и после не роботают я это ты в хуй говори после хуя я это ты мамке под ником ники мать все Ник  он щя в хуй мамке скажет на лице покажет сказку расскажет соврет в хуй отца отрицания мать твою убить до и после хуй те в рот я это ты мамке под силового хуя у тя во рту", 3)
+	end,
+})
+
+
+local Button = MainTab:CreateButton({
+	Name = "ll hitбокс плейр маленький",
+	Callback = function()     
+		local NotificationLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/lobox920/Notification-Library/Main/Library.lua"))()
+		NotificationLibrary:SendNotification("Success", "Маленький хит! Нажми на G", 5)
+
+		-- Скрипт для запуска/остановки анимации (для инжектора)
+		-- Переключение по кнопке G
+
+		local animationId = "rbxassetid://181526230" -- ID анимации
+		local player = game.Players.LocalPlayer
+		local character = player.Character or player.CharacterAdded:Wait()
+		local humanoid = character:WaitForChild("Humanoid")
+		local UserInputService = game:GetService("UserInputService")
+
+		local animationTrack
+		local animationIsPlaying = false
+
+		local function PlayAnimation()
+			if not humanoid then
+				warn("Humanoid не найден. Убедитесь, что персонаж загружен.")
+				return
+			end
+
+			-- Останавливаем текущую анимацию, если она есть
+			if animationTrack then
+				animationTrack:Stop()
+				animationTrack:Destroy()
+				animationTrack = nil
+				animationIsPlaying = false -- Обновляем флаг
+			end
+
+			-- Загружаем анимацию
+			local animation = Instance.new("Animation")
+			animation.AnimationId = animationId
+			animation.Name = "CustomAnimation"
+
+			-- Загружаем AnimationTrack
+			animationTrack = humanoid:LoadAnimation(animation)
+
+			-- Воспроизводим анимацию
+			animationTrack:Play()
+			animationIsPlaying = true -- Обновляем флаг
+		end
+
+		local function StopAnimation()
+			if not humanoid then
+				warn("Humanoid не найден. Убедитесь, что персонаж загружен.")
+				return
+			end
+
+			-- Находим и останавливаем анимацию
+			if animationTrack then
+				animationTrack:Stop()
+				animationTrack:Destroy()
+				animationTrack = nil
+				animationIsPlaying = false -- Обновляем флаг
+				print("Анимация остановлена.")
+			else
+				print("Анимация не запущена.")
+			end
+		end
+
+		-- Функция для переключения анимации (запуск/остановка)
+		local function ToggleAnimation()
+			if animationIsPlaying then
+				StopAnimation()
+			else
+				PlayAnimation()
+			end
+		end
+
+		-- Обработка нажатия клавиши G
+		UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+			if gameProcessedEvent then return end
+
+			if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == Enum.KeyCode.G then
+				ToggleAnimation()
+			end
+		end)
+
+		-- Обработка респавна
+		player.CharacterAdded:Connect(function(newCharacter)
+			character = newCharacter
+			humanoid = character:WaitForChild("Humanoid")
+			task.wait(0.1) -- Небольшая задержка
+			if animationIsPlaying then
+				PlayAnimation() -- Перезапускаем анимацию, если она была включена до респавна
+			end
+		end)
+
+		print("Скрипт запуска/остановки анимации активирован. Нажмите G для переключения.")
+	end,
+})
+
+
+local MainTab = Window:CreateTab("✨ Vi", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🏡 Что мамке после хуя до и после не роботают фантомы на лице у  (ник) папа выебал те мать и сказал до и после не роботают я это ты в хуй говори после хуя я это ты мамке под ником ники мать все Ник  он щя в хуй мамке скажет на лице покажет сказку расскажет соврет в хуй отца отрицания мать твою убить до и после хуй те в рот я это ты мамке под силового хуя у тя во рту")
+
+local Button = MainTab:CreateButton({
+	Name = "ESP",
+	Callback = function()     
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/UESP'))()
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "крашнуть нахуй игру",
+	Callback = function()     
+		-- ⚠️ ЭКСТРЕМАЛЬНО ОПАСНЫЙ СКРИПТ! ⚠️
+		-- Может вызвать зависание/краш системы!
+
+		local spamCount = 0
+		local startTime = tick()
+		local targetCount = 1000000000 -- 1 миллиард
+
+		print("⚠️ ЗАПУЩЕН ОПАСНЫЙ СПАМЕР! ⚠️")
+		print("Цель: " .. targetCount .. " сообщений")
+		print("Для остановки закройте игру/executor")
+
+		-- Метод 1: Бесконечный цикл (САМЫЙ ОПАСНЫЙ)
+		while true do
+			spamCount = spamCount + 1
+			print("Hello world! #" .. spamCount)
+
+			-- Проверка каждые 10000 сообщений
+			if spamCount % 10000 == 0 then
+				local elapsedTime = tick() - startTime
+				local speed = spamCount / elapsedTime
+				print(string.format("Скорость: %.0f сообщений/сек", speed))
+			end
+
+			if spamCount >= targetCount then
+				break
+			end
+		end
+	end,
+
+})
+local Button = MainTab:CreateButton({
+	Name = "есп оружия (beta)",
+	Callback = function()     
+		-- Настройки
+		local highlightThickness = 10 -- Толщина обводки
+		local depthMode = Enum.HighlightDepthMode.AlwaysOnTop -- Подсветка сквозь объекты
+		local showNames = false -- Отображать имена предметов
+		local rainbowSpeed = 1 -- Скорость смены цветов (чем больше, тем быстрее)
+
+		-- Функция для создания подсветки
+		local function CreateHighlight(object)
+			local highlight = Instance.new("Highlight")
+			highlight.Parent = object
+			highlight.OutlineThickness = highlightThickness
+			highlight.DepthMode = depthMode
+			return highlight
+		end
+
+		-- Функция для удаления подсветки
+		local function RemoveHighlight(object)
+			local highlight = object:FindFirstChild("Highlight")
+			if highlight then
+				highlight:Destroy()
+			end
+		end
+
+		-- Функция для создания надписи над объектом
+		local function CreateNameLabel(object)
+			local billboardGui = Instance.new("BillboardGui")
+			billboardGui.Parent = object
+			billboardGui.Size = UDim2.new(100, 1000, 100000, 100) -- Ширина 100%, высота 20%
+			billboardGui.StudsOffset = Vector3.new(0, 2, 5) -- Смещение над объектом
+			billboardGui.AlwaysOnTop = true
+
+			local textLabel = Instance.new("TextLabel")
+			textLabel.Parent = billboardGui
+			textLabel.Size = UDim2.new(1, 0, 1, 0) -- Занимает всю область BillboardGui
+			textLabel.BackgroundTransparency = 1
+			textLabel.TextColor3 = Color3.new(1, 0, 0.94902) -- Белый цвет текста
+			textLabel.TextScaled = true
+			textLabel.Text = "FUCKNIGGERS"-- Имя объекта
+			textLabel.Font = Enum.Font.SourceSansBold
+			textLabel.TextStrokeColor3 = Color3.new(1, 0, 0.917647)
+			textLabel.TextStrokeTransparency = 0
+			return billboardGui
+		end
+
+		-- Функция для удаления надписи
+		local function RemoveNameLabel(object)
+			local billboardGui = object:FindFirstChild("BillboardGui")
+			if billboardGui then
+				billboardGui:Destroy()
+			end
+		end
+
+		-- Функция для вычисления радужного цвета
+		local function GetRainbowColor(offset)
+			local hue = (tick() * rainbowSpeed + offset) % 360
+			return Color3.fromHSV(hue / 360, 1, 1)
+		end
+
+		-- Функция для обработки добавления новых предметов в Workspace
+		local function OnDescendantAdded(descendant)
+			if descendant:IsA("Tool") then
+				local highlight = CreateHighlight(descendant)
+				if showNames then
+					CreateNameLabel(descendant)
+				end
+				-- Запоминаем highlight для обновления цвета
+				descendant:SetAttribute("HighlightInstance", highlight)
+			end
+		end
+
+		-- Функция для обработки удаления предметов из Workspace
+		local function OnDescendantRemoving(descendant)
+			if descendant:IsA("Tool") then
+				RemoveHighlight(descendant)
+				RemoveNameLabel(descendant)
+			end
+		end
+
+		-- Функция для начальной подсветки существующих предметов
+		local function HighlightExistingTools()
+			for _, object in pairs(workspace:GetDescendants()) do
+				if object:IsA("Tool") then
+					local highlight = CreateHighlight(object)
+					if showNames then
+						CreateNameLabel(object)
+					end
+					-- Запоминаем highlight для обновления цвета
+					object:SetAttribute("HighlightInstance", highlight)
+				end
+			end
+		end
+
+		-- Подключаем события для обработки добавления и удаления предметов
+		workspace.DescendantAdded:Connect(OnDescendantAdded)
+		workspace.DescendantRemoving:Connect(OnDescendantRemoving)
+
+		-- Выполняем начальную подсветку существующих предметов
+		HighlightExistingTools()
+
+		-- Функция для обновления радужной подсветки
+		local function UpdateRainbowHighlights()
+			for _, object in pairs(workspace:GetDescendants()) do
+				if object:IsA("Tool") then
+					local highlight = object:GetAttribute("HighlightInstance")
+					if highlight then
+						local offset = tonumber(string.sub(tostring(object), 11, 14), 16) or 0
+						local rainbowColor = GetRainbowColor(offset)
+						highlight.FillColor = rainbowColor
+						highlight.OutlineColor = rainbowColor
+					end
+				end
+			end
+		end
+
+		-- Обновляем радужную подсветку каждый кадр
+		game:GetService("RunService").RenderStepped:Connect(UpdateRainbowHighlights)
+
+		print("Радужный ВХ на Tool предметы в Workspace активирован.")
+	end,
+})
+
+local MainSection = MainTab:CreateSection("🤖nigger")
+
+local Button = MainTab:CreateButton({
+	Name = "руки отпервого лица",
+	Callback = function()     
+		-- Скрипт для отображения рук от первого лица
+
+		local Players = game:GetService("Players")
+		local RunService = game:GetService("RunService")
+		local LocalPlayer = Players.LocalPlayer
+		local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+
+		local LeftArmName = "Left Arm"
+		local RightArmName = "Right Arm"
+
+		local function MakeArmsVisible()
+			local LeftArm = Character:FindFirstChild(LeftArmName)
+			local RightArm = Character:FindFirstChild(RightArmName)
+
+			if not LeftArm or not RightArm then
+				return -- Если руки не найдены, выходим
+			end
+
+			-- Логика для отображения рук
+			LeftArm.LocalTransparencyModifier = 0
+			RightArm.LocalTransparencyModifier = 0
+		end
+
+		-- Функция для скрытия других частей тела
+		local function HideBodyParts()
+			for _, part in ipairs(Character:GetChildren()) do
+				if part:IsA("BasePart") and part.Name ~= LeftArmName and part.Name ~= RightArmName then
+					part.LocalTransparencyModifier = 0 -- Полная прозрачность
+				end
+			end
+		end
+
+
+		-- Функция для отслеживания добавления/удаления частей тела
+		local function OnCharacterChanged()
+			Character = LocalPlayer.Character
+			if not Character then return end
+
+			-- Изначально скрываем все, кроме рук
+			HideBodyParts()
+			MakeArmsVisible()
+
+			-- Отслеживаем изменение внешнего вида
+			Character.ChildAdded:Connect(function(child)
+				if child:IsA("BasePart") and child.Name ~= LeftArmName and child.Name ~= RightArmName then
+					child.LocalTransparencyModifier = 1 -- Скрываем добавленную часть тела
+				end
+				if child.Name == LeftArmName or child.Name == RightArmName then
+					child.LocalTransparencyModifier = 0 --  Делаем руки видимыми, если они были добавлены
+				end
+			end)
+
+			Character.ChildRemoved:Connect(function(child)
+				-- Ничего не делаем при удалении (оставляем руки видимыми)
+			end)
+
+		end
+
+
+		-- Подключаем функцию к RenderStepped для постоянного обновления
+		local function UpdateArmsVisibility()
+			if not LocalPlayer or not LocalPlayer.Character then return end
+			Character = LocalPlayer.Character
+			if not Character:FindFirstChild(LeftArmName) or not Character:FindFirstChild(RightArmName) then return end
+
+			MakeArmsVisible() -- Убеждаемся, что руки видимы каждый кадр
+
+		end
+
+
+		-- Обрабатываем создание персонажа
+		Players.PlayerAdded:Connect(function(player)
+			player.CharacterAdded:Connect(OnCharacterChanged)
+		end)
+
+		if LocalPlayer and LocalPlayer.Character then
+			OnCharacterChanged() -- Вызываем сразу, если персонаж уже есть
+		end
+
+		--Подключаем постоянное обновление видимости рук
+		RunService.RenderStepped:Connect(UpdateArmsVisibility)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("ld")
+
+local Button = MainTab:CreateButton({
+	Name = "розовый мир",
+	Callback = function()     
+		-- Скрипт для изменения цвета партов с названием "Hill"
+
+		local targetColor = Color3.fromRGB(255, 0, 251) -- Введите сюда свой цвет
+		local targetName = "Baseplate" and "Part" -- Название партов для изменения
+
+		-- Функция для изменения цвета парта
+		local function ChangeHillColor(part)
+			if part.Name == targetName and part:IsA("Workspace") then
+				part.Color = targetColor
+			end
+		end
+
+		-- Функция для обработки добавления новых партов в Workspace
+		local function OnDescendantAdded(descendant)
+			ChangeHillColor(descendant)
+		end
+
+		-- Функция для начальной обработки существующих партов
+		local function ProcessExistingParts()
+			for _, part in pairs(workspace:GetDescendants()) do
+				ChangeHillColor(part)
+			end
+		end
+
+		-- Подключаем событие для обработки добавления новых партов
+		workspace.DescendantAdded:Connect(OnDescendantAdded)
+
+		-- Выполняем начальную обработку существующих партов
+		ProcessExistingParts()
+
+		print("Скрипт изменения цвета партов с названием 'baseplate' активирован.")
+
+		-- Скрипт для удаления группы XMasTree из папки DecorationsXMAS
+
+		local decorationsFolderName = "DecorationsXMAS"  -- Название папки
+		local groupToDeleteName = "XMasTree"           -- Название группы для удаления
+
+		local function DeleteGroup()
+			local decorationsFolder = workspace:FindFirstChild(decorationsFolderName)
+
+			if not decorationsFolder then
+				print("Папка '" .. decorationsFolderName .. "' не найдена.")
+				return
+			end
+
+			if not decorationsFolder:IsA("Folder") then
+				print("'" .. decorationsFolderName .. "' не является папкой.")
+				return
+			end
+
+			local groupToDelete = decorationsFolder:FindFirstChild(groupToDeleteName)
+
+			if not groupToDelete then
+				print("Группа '" .. groupToDeleteName .. "' не найдена в '" .. decorationsFolderName .. "'.")
+				return
+			end
+
+			if not groupToDelete:IsA("Model") then
+				print("'" .. groupToDeleteName .. "' не является моделью (группой).")
+				return
+			end
+
+			groupToDelete:Destroy()
+			print("Группа '" .. groupToDeleteName .. "' успешно удалена из '" .. decorationsFolderName .. "'.")
+		end
+
+		DeleteGroup()
+
+		print("Скрипт удаления группы выполнен.")
+
+		-- Скрипт для удаления всех партов с названием "SnowAbove" из папки "decor" в папке "дурка"
+
+		local folder1Name = "дурка" -- Имя первой папки
+		local folder2Name = "decor" -- Имя второй папки (внутри первой)
+		local partNameToDelete = "SnowAbove" -- Имя парта для удаления
+
+		local function DeleteSnowAboveParts()
+			local folder1 = workspace:FindFirstChild(folder1Name)
+
+			if not folder1 then
+				print("Папка '" .. folder1Name .. "' не найдена.")
+				return
+			end
+
+			if not folder1:IsA("Folder") then
+				print("'" .. folder1Name .. "' не является папкой.")
+				return
+			end
+
+			local folder2 = folder1:FindFirstChild(folder2Name)
+
+			if not folder2 then
+				print("Папка '" .. folder2Name .. "' не найдена в '" .. folder1Name .. "'.")
+				return
+			end
+
+			if not folder2:IsA("Folder") then
+				print("'" .. folder2Name .. "' не является папкой.")
+				return
+			end
+
+			local partsToDelete = {} -- Таблица для хранения партов, которые нужно удалить
+
+			for _, object in ipairs(folder2:GetDescendants()) do
+				if object:IsA("BasePart") and object.Name == partNameToDelete then
+					table.insert(partsToDelete, object) -- Добавляем найденный парт в таблицу
+				end
+			end
+
+			for _, part in ipairs(partsToDelete) do
+				part:Destroy() -- Удаляем парт
+			end
+
+			print("Удалено " .. #partsToDelete .. " партов с именем '" .. partNameToDelete .. "' из папки '" .. folder2Name .. "' в папке '" .. folder1Name .. "'.")
+		end
+
+		DeleteSnowAboveParts()
+
+		print("Скрипт удаления партов выполнен.")
+
+		-- Скрипт для постоянного удаления парта с названием "1SNEZINKA"
+
+		local partName = "1SNEZINKA" -- Название парта для удаления
+
+		local function Remove1SNEZINKAPart()
+			local part = workspace:FindFirstChild(partName)
+			if part and part:IsA("BasePart") then
+				part:Destroy()
+				--print("Парт '" .. partName .. "' удален.") -- Уберите комментарий, если хотите видеть сообщения при удалении
+			end
+		end
+
+		-- Запускаем функцию удаления парта каждый кадр
+		game:GetService("RunService").RenderStepped:Connect(Remove1SNEZINKAPart)
+
+		print("Скрипт постоянного удаления парта '" .. partName .. "' активирован.")
+
+		-- Скрипт для изменения названия всех партов на "gora" во всех группах с названием "Hill"
+
+		local groupName = "Hill" -- Название группы
+		local targetName = "gora" -- Целевое название для партов
+
+		local function ChangePartName(part)
+			if part:IsA("BasePart") then
+				part.Name = targetName
+			end
+		end
+
+		local function ProcessGroups()
+			for _, object in ipairs(workspace:GetChildren()) do
+				if object:IsA("Model") and object.Name == groupName then
+					-- Если это модель и её название соответствует заданному, обрабатываем её
+					for _, part in ipairs(object:GetDescendants()) do
+						ChangePartName(part)
+					end
+				end
+			end
+		end
+
+		ProcessGroups()
+
+		print("Скрипт изменения названий партов в группах '" .. groupName .. "' на '" .. targetName .. "' выполнен.")
+
+		local targetColor = Color3.fromRGB(31, 128, 29) -- Введите сюда свой цвет
+		local targetName = "gora" -- Название партов для изменения
+
+		-- Функция для изменения цвета парта
+		local function ChangeHillColor(part)
+			if part.Name == targetName and part:IsA("BasePart") then
+				part.Color = targetColor
+			end
+		end
+
+		-- Функция для обработки добавления новых партов в Workspace
+		local function OnDescendantAdded(descendant)
+			ChangeHillColor(descendant)
+		end
+
+		-- Функция для начальной обработки существующих партов
+		local function ProcessExistingParts()
+			for _, part in pairs(workspace:GetDescendants()) do
+				ChangeHillColor(part)
+			end
+		end
+
+		-- Подключаем событие для обработки добавления новых партов
+		workspace.DescendantAdded:Connect(OnDescendantAdded)
+
+		-- Выполняем начальную обработку существующих партов
+		ProcessExistingParts()
+
+		print("Скрипт изменения цвета партов с названием 'baseplate' активирован.")
+
+		local groupName = "forest" -- Название группы для удаления
+		local folder1Name = "дурка" -- Название первой папки
+		local folder2Name = "decor" -- Название второй папки
+
+		local function RemoveForestGroup()
+			-- Поиск первой папки
+			local folder1 = workspace:FindFirstChild(folder1Name)
+			if folder1 and folder1:IsA("Folder") then
+
+				-- Поиск второй папки внутри первой
+				local folder2 = folder1:FindFirstChild(folder2Name)
+				if folder2 and folder2:IsA("Folder") then
+
+					-- Поиск группы в обеих папках
+					local group = folder2:FindFirstChild(groupName)
+					if group then
+						group:Destroy()
+						print("Группа '" .. groupName .. "' в папках '" .. folder1Name .. "' и '" .. folder2Name .. "' удалена.")
+					else
+						print("Группа '" .. groupName .. "' не найдена в папках '" .. folder1Name .. "' и '" .. folder2Name .. "'.")
+					end
+
+				else
+					print("Папка '" .. folder2Name .. "' не найдена в папке '" .. folder1Name .. "'.")
+				end
+
+			else
+				print("Папка '" .. folder1Name .. "' не найдена.")
+			end
+		end
+
+		RemoveForestGroup() -- Вызываем функцию для удаления группы
+
+		print("Скрипт удаления группы '" .. groupName .. "' выполнен.")
+
+		-- Скрипт для изменения материала всех партов с названием "gora" на "Grass"
+
+		local partName = "gora" -- Название парта для поиска
+		local targetMaterial = Enum.Material.Grass -- Целевой материал
+
+		local function ChangeGoraMaterial()
+			-- Проходим по всем объектам в Workspace
+			for _, object in ipairs(workspace:GetDescendants()) do
+				-- Проверяем, является ли объект BasePart (Part, MeshPart, UnionOperation и т.д.) и имеет ли он нужное название
+				if object:IsA("BasePart") and object.Name == partName then
+					object.Material = targetMaterial
+				end
+			end
+		end
+
+		ChangeGoraMaterial() -- Вызываем функцию для изменения материала
+
+		print("Скрипт изменения материала партов с названием '" .. partName .. "' на 'Grass' выполнен.")
+
+		-- Убираем надпись с новым годом йоуу
+
+		local groupName = "XMasCounter" -- Название группы
+
+		local function MakeGroupInvisibleAndRemoveTextLabels()
+			local group = workspace:FindFirstChild(groupName)
+
+			if not group then
+				print("Группа '" .. groupName .. "' не найдена.")
+				return
+			end
+
+			if not group:IsA("Model") then
+				print("'" .. groupName .. "' не является моделью (группой).")
+				return
+			end
+
+			local textLabelsToDelete = {} -- Создаем таблицу для хранения TextLabel
+
+			for _, object in ipairs(group:GetDescendants()) do
+				if object:IsA("BasePart") then -- Проверяем, является ли объект Part (или производным от BasePart)
+					object.Transparency = 1 -- Устанавливаем прозрачность на 1 (полностью невидимый)
+				elseif object:IsA("TextLabel") then
+					table.insert(textLabelsToDelete, object) -- Добавляем TextLabel в таблицу
+				end
+			end
+
+			-- Удаляем TextLabel после завершения цикла перебора
+			for _, textLabel in ipairs(textLabelsToDelete) do
+				textLabel:Destroy() -- Удаляем TextLabel
+			end
+
+			print("Прозрачность всех партов в группе '" .. groupName .. "' изменена на 1 и TextLabel удалены.")
+		end
+
+		MakeGroupInvisibleAndRemoveTextLabels()
+
+		print("Скрипт изменения прозрачности и удаления TextLabel выполнен.")
+
+		-- Скрипт для изменения материала всех партов с названием "gora" на "Grass"
+
+		local partName = "Baseplate" -- Название парта для поиска
+		local targetMaterial = Enum.Material.Grass -- Целевой материал
+
+		local function ChangeBaseplateMaterial()
+			-- Проходим по всем объектам в Workspace
+			for _, object in ipairs(workspace:GetDescendants()) do
+				-- Проверяем, является ли объект BasePart (Part, MeshPart, UnionOperation и т.д.) и имеет ли он нужное название
+				if object:IsA("BasePart") and object.Name == partName then
+					object.Material = targetMaterial
+				end
+			end
+		end
+
+		ChangeBaseplateMaterial() -- Вызываем функцию для изменения материала
+
+		print("Скрипт изменения материала партов с названием '" .. partName .. "' на 'Grass' выполнен.")
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Lowbright",
+	Callback = function()     
+		--just made a loadstring for my discord server, so i not made thi
+		--https://discord.gg/7axk7UGS8C
+
+
+		pcall(function()
+			local lighting = game:GetService("Lighting");
+			lighting.Ambient = Color3.fromRGB(0, 0, 0);
+			lighting.Brightness = 1;
+			lighting.FogEnd = 1e10;
+			for i, v in pairs(lighting:GetDescendants()) do
+				if v:IsA("BloomEffect") or v:IsA("BlurEffect") or v:IsA("ColorCorrectionEffect") or v:IsA("SunRaysEffect") then
+					v.Enabled = false;
+				end;
+			end;
+			lighting.Changed:Connect(function()
+				lighting.Ambient = Color3.fromRGB(0, 0, 0);
+				lighting.Brightness = 0;
+				lighting.FogEnd = 1;
+			end);
+			spawn(function()
+				local character = game:GetService("Players").LocalPlayer.Character;
+				while wait() do
+					repeat wait() until character ~= nil;
+					if not character.HumanoidRootPart:FindFirstChildWhichIsA("PointLight") then
+						local headlight = Instance.new("PointLight", character.HumanoidRootPart);
+						headlight.Brightness = 0;
+						headlight.Range = 0;
+					end;
+				end;
+			end);
+		end)
+	end,
+})
+
+local MainSection = MainTab:CreateSection("🔫 Custom tracer weapon (beta)")
+
+local Button = MainTab:CreateButton({
+	Name = "pink",
+	Callback = function()     
+		-- Скрипт для изменения цвета партов с названием "Hill"
+
+		local targetColor = Color3.fromRGB(255, 0, 242) -- Введите сюда свой цвет
+		local targetName = "tracer" -- Название партов для изменения
+
+		-- Функция для изменения цвета парта
+		local function ChangeHillColor(part)
+			if part.Name == targetName and part:IsA("BasePart") then
+				part.Color = targetColor
+			end
+		end
+
+		-- Функция для обработки добавления новых партов в Workspace
+		local function OnDescendantAdded(descendant)
+			ChangeHillColor(descendant)
+		end
+
+		-- Функция для начальной обработки существующих партов
+		local function ProcessExistingParts()
+			for _, part in pairs(workspace:GetDescendants()) do
+				ChangeHillColor(part)
+			end
+		end
+
+		-- Подключаем событие для обработки добавления новых партов
+		workspace.DescendantAdded:Connect(OnDescendantAdded)
+
+		-- Выполняем начальную обработку существующих партов
+		ProcessExistingParts()
+
+		print("Скрипт изменения цвета партов с названием 'Hill' активирован.")
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "pink2",
+	Callback = function()     
+		-- Скрипт для изменения цвета партов с названием "Hill"
+
+		local targetColor = Color3.fromRGB(247, 0, 255) -- Введите сюда свой цвет
+		local targetName = "tracer" -- Название партов для изменения
+
+		-- Функция для изменения цвета парта
+		local function ChangeHillColor(part)
+			if part.Name == targetName and part:IsA("BasePart") then
+				part.Color = targetColor
+			end
+		end
+
+		-- Функция для обработки добавления новых партов в Workspace
+		local function OnDescendantAdded(descendant)
+			ChangeHillColor(descendant)
+		end
+
+		-- Функция для начальной обработки существующих партов
+		local function ProcessExistingParts()
+			for _, part in pairs(workspace:GetDescendants()) do
+				ChangeHillColor(part)
+			end
+		end
+
+		-- Подключаем событие для обработки добавления новых партов
+		workspace.DescendantAdded:Connect(OnDescendantAdded)
+
+		-- Выполняем начальную обработку существующих партов
+		ProcessExistingParts()
+
+		print("Скрипт изменения цвета партов с названием 'Hill' активирован.")
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "pink3",
+	Callback = function()     
+		-- Скрипт для изменения цвета партов с названием "Hill"
+
+		local targetColor = Color3.fromRGB(247, 0, 255) -- Введите сюда свой цвет
+		local targetName = "tracer" -- Название партов для изменения
+
+		-- Функция для изменения цвета парта
+		local function ChangeHillColor(part)
+			if part.Name == targetName and part:IsA("BasePart") then
+				part.Color = targetColor
+			end
+		end
+
+		-- Функция для обработки добавления новых партов в Workspace
+		local function OnDescendantAdded(descendant)
+			ChangeHillColor(descendant)
+		end
+
+		-- Функция для начальной обработки существующих партов
+		local function ProcessExistingParts()
+			for _, part in pairs(workspace:GetDescendants()) do
+				ChangeHillColor(part)
+			end
+		end
+
+		-- Подключаем событие для обработки добавления новых партов
+		workspace.DescendantAdded:Connect(OnDescendantAdded)
+
+		-- Выполняем начальную обработку существующих партов
+		ProcessExistingParts()
+
+		print("Скрипт изменения цвета партов с названием 'Hill' активирован.")
+	end,
+})
+
+local MainTab = Window:CreateTab("🤖 nigger", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🏡 Mainkraft")
+
+local Button = MainTab:CreateButton({
+	Name = "Infinite sit",
+	Callback = function()     
+		_G.infinjump = true
+
+		local Player = game:GetService("Players").LocalPlayer
+		local Mouse = Player:GetMouse()
+		Mouse.KeyDown:connect(function(k)
+			if _G.infinjump then
+				if k:byte() == 32 then
+					Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+					Humanoid:ChangeState("Seated")
+					wait(0.1)
+					Humanoid:ChangeState("Seated")
+				end
+			end
+		end)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Auto sit",
+	Callback = function()     
+		local player = game:GetService("Players").LocalPlayer
+		local character = player.Character
+		local humanoid = character:FindFirstChild("Humanoid")
+		local jumping = false
+
+		if humanoid then
+			local function Jump()
+				if not jumping then
+					jumping = true
+					humanoid:ChangeState(Enum.HumanoidStateType.Seated)
+					wait(0.1)
+					jumping = false
+				end
+			end
+
+			game:GetService("RunService").RenderStepped:Connect(function()
+				if humanoid.FloorMaterial ~= Enum.Material.Air and not jumping then
+					Jump()
+				end
+			end)
+		end
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "67 hp",
+	Callback = function()     
+		local player = game:GetService("Players").LocalPlayer
+		local character = player.Character
+		local humanoid = character:FindFirstChild("Humanoid")
+
+		if humanoid then
+			humanoid.Health = 67
+		end
+	end,
+})
+
+local MainTab = Window:CreateTab("🔫 Gundons", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🏡 Mainkraft")
+
+local Button = MainTab:CreateButton({
+	Name = "No Recoil",
+	Callback = function()     
+		local CurrentFocus = game:GetService("Workspace").CurrentCamera.CFrame
+		game:GetService("Workspace").CurrentCamera:Destroy()
+		local Instance = Instance.new("Camera", game:GetService("Workspace"))
+		Instance.CameraSubject = game:GetService("Players").LocalPlayer.Character.Humanoid
+		Instance.CameraType = Enum.CameraType.Custom
+	end,
+})
+
+local MainTab = Window:CreateTab("🔨 kuni", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🏡 Main")
+
+local Button = MainTab:CreateButton({
+	Name = "Rejoin",
+	Callback = function()     
+		local ts = game:GetService("TeleportService")
+
+		local p = game:GetService("Players").LocalPlayer
+
+
+
+		ts:Teleport(game.PlaceId, p)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "infinity elda",
+	Callback = function()     
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "Chat SPY",
+	Callback = function()
+		--roblox chat spy script
+		--This script reveals ALL hidden messages in the default chat
+		--chat "/spy" to toggle!
+		enabled = true
+		--if true will check your messages too
+		spyOnMyself = true
+		--if true will chat the logs publicly (fun, risky)
+		public = false
+		--if true will use /me to stand out
+		publicItalics = true
+		--customize private logs
+		privateProperties = {
+			Color = Color3.fromRGB(0,255,255); 
+			Font = Enum.Font.SourceSansBold;
+			TextSize = 18;
+		}
+		--////////////////////////////////////////////////////////////////
+		local StarterGui = game:GetService("StarterGui")
+		local Players = game:GetService("Players")
+		local player = Players.LocalPlayer
+		local saymsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("SayMessageRequest")
+		local getmsg = game:GetService("ReplicatedStorage"):WaitForChild("DefaultChatSystemChatEvents"):WaitForChild("OnMessageDoneFiltering")
+		local instance = (_G.chatSpyInstance or 0) + 1
+		_G.chatSpyInstance = instance
+
+		local function onChatted(p,msg)
+			if _G.chatSpyInstance == instance then
+				if p==player and msg:lower():sub(1,4)=="/spy" then
+					enabled = not enabled
+					wait(0.3)
+					privateProperties.Text = "{SKANEEXX SPY "..(enabled and "EN" or "DIS").."ABLED}"
+					StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+				elseif enabled and (spyOnMyself==true or p~=player) then
+					msg = msg:gsub("[\n\r]",''):gsub("\t",' '):gsub("[ ]+",' ')
+					local hidden = true
+					local conn = getmsg.OnClientEvent:Connect(function(packet,channel)
+						if packet.SpeakerUserId==p.UserId and packet.Message==msg:sub(#msg-#packet.Message+1) and (channel=="All" or (channel=="Team" and public==false and Players[packet.FromSpeaker].Team==player.Team)) then
+							hidden = false
+						end
+					end)
+					wait(1)
+					conn:Disconnect()
+					if hidden and enabled then
+						if public then
+							saymsg:FireServer((publicItalics and "/me " or '').."{SPY} [".. p.Name .."]: "..msg,"All")
+						else
+							privateProperties.Text = "{SPY} [".. p.Name .."]: "..msg
+							StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+						end
+					end
+				end
+			end
+		end
+
+		for _,p in ipairs(Players:GetPlayers()) do
+			p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+		end
+		Players.PlayerAdded:Connect(function(p)
+			p.Chatted:Connect(function(msg) onChatted(p,msg) end)
+		end)
+		privateProperties.Text = "{SKANEEXX SPY "..(enabled and "EN" or "DIS").."ABLED}"
+		StarterGui:SetCore("ChatMakeSystemMessage",privateProperties)
+		local chatFrame = player.PlayerGui.Chat.Frame
+		chatFrame.ChatChannelParentFrame.Visible = true
+		chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
+	end,
+})
+
+local MainTab = Window:CreateTab("🔓", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("🏡 Main")
+
+local Button = MainTab:CreateButton({
+	Name = "заспавнить какую то ебучую железяку в небе",
+	Callback = function()     
+		local player = game.Players.LocalPlayer
+
+		if player then  -- Убедимся, что игрок существует
+			local character = player.Character or player.CharacterAdded:Wait() -- Если персонаж еще не загружен, подождем его
+			local rootPart = character:WaitForChild("HumanoidRootPart") -- Ждем HumanoidRootPart
+
+			local offsetY1 = 150
+			local offsetY2 = 60
+			local offsetX = -10
+
+			local function TeleportWithOffset(offsetY)
+				if rootPart then  -- Убедимся, что HumanoidRootPart существует
+					local currentPosition = rootPart.Position
+					local newPosition = currentPosition + Vector3.new(offsetX, offsetY, 0)
+					rootPart.CFrame = CFrame.new(newPosition)
+				else
+					print("HumanoidRootPart не найден!")
+				end
+			end
+
+			TeleportWithOffset(offsetY1)
+			TeleportWithOffset(offsetY2) -- Вызываем функцию для телепортации
+
+		else
+			print("Игрок не найден!")
+		end
+
+		print("Скрипт телепортации выполнен.")
+
+		-- Скрипт для создания Truss на 500 студов вверх перед игроком
+
+		local trussHeight = 5000000000000000000 -- Общая высота Truss
+		local trussWidth = 200000000000000 -- Ширина Truss
+		local trussDepth = 2 -- Глубина Truss
+		local trussMaterial = Enum.Material.Metal -- Материал Truss
+		local trussColor = Color3.fromRGB(100, 100, 100) -- Цвет Truss
+
+		local function CreateTruss()
+			local player = game.Players.LocalPlayer
+			if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+				local rootPart = player.Character:FindFirstChild("HumanoidRootPart")
+				local head = player.Character:FindFirstChild("Head")
+				if not head then
+					print("Head не найден у персонажа.")
+					return
+				end
+
+				local startPosition = rootPart.Position + head.CFrame.LookVector * 2 -- Начинаем немного перед игроком
+				local endPosition = startPosition + Vector3.new(0, trussHeight, 0) -- Конечная позиция Truss
+
+				local truss = Instance.new("TrussPart")
+				truss.Name = "GeneratedTruss"
+				truss.Size = Vector3.new(trussWidth, trussHeight, trussDepth)
+				truss.Material = trussMaterial
+				truss.Color = trussColor
+				truss.Anchored = true
+				truss.CanCollide = true
+				-- Используем CFrame.new(position, lookAt) для правильной ориентации
+				truss.CFrame = CFrame.new(startPosition, endPosition) * CFrame.Angles(math.rad(-90),0,0) --Поворот на 90 градусов
+				truss.Parent = workspace
+
+				print("Truss создана перед игроком.")
+			else
+				print("Персонаж не найден или HumanoidRootPart отсутствует.")
+			end
+		end
+
+		CreateTruss()
+
+		print("Скрипт создания Truss выполнен.")
+	end,
+})
