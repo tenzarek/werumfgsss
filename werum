@@ -10,6 +10,7 @@ print("Hello World!")
 print("Hello World!")
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Pixeluted/adoniscries/main/Source.lua",false))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Actyrn/Scripts/main/AzureModded"))()
 -- Простой передвигаемый водяной знак
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "SimpleWatermark"
