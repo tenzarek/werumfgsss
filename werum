@@ -282,7 +282,7 @@ local Window = Rayfield:CreateWindow({
 		FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
 		SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
 		GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-		Key = {"svin"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+		Key = {"kunilingus"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
 	}
 })
 
@@ -414,6 +414,171 @@ local Button = MainTab:CreateButton({
 })
 
 local MainSection = MainTab:CreateSection("🚫 Anti-Cum")
+
+local Button = MainTab:CreateButton({
+	Name = "Анти ноги (активировать на F)",
+	Callback = function()     
+		-- Флай скрипт для инжектора
+-- Горячие клавиши:
+-- E - вверх
+-- Q - вниз
+-- WASD - движение
+
+local player = game:GetService("Players").LocalPlayer
+local userinput = game:GetService("UserInputService")
+local runservice = game:GetService("RunService")
+
+local flying = false
+local bodyvel = nil
+local bodygyro = nil
+local speed = 50
+
+-- Функция для включения/выключения полета
+local function toggleFly()
+    local char = player.Character
+    if not char then return end
+    
+    local hrp = char:FindFirstChild("HumanoidRootPart")
+    local humanoid = char:FindFirstChild("Humanoid")
+    
+    if not hrp or not humanoid then return end
+    
+    flying = not flying
+    
+    if flying then
+        -- Создаем BodyVelocity для движения
+        bodyvel = Instance.new("BodyVelocity")
+        bodyvel.MaxForce = Vector3.new(4000, 4000, 4000)
+        bodyvel.Velocity = Vector3.new(0, 0, 0)
+        bodyvel.Parent = hrp
+        
+        -- Создаем BodyGyro для стабилизации
+        bodygyro = Instance.new("BodyGyro")
+        bodygyro.MaxTorque = Vector3.new(4000, 4000, 4000)
+        bodygyro.P = 1000
+        bodygyro.D = 50
+        bodygyro.CFrame = hrp.CFrame
+        bodygyro.Parent = hrp
+        
+        -- Отключаем гравитацию
+        humanoid.PlatformStand = true
+        
+        print("Полет включен")
+    else
+        -- Удаляем компоненты полета
+        if bodyvel then
+            bodyvel:Destroy()
+            bodyvel = nil
+        end
+        
+        if bodygyro then
+            bodygyro:Destroy()
+            bodygyro = nil
+        end
+        
+        -- Включаем гравитацию обратно
+        humanoid.PlatformStand = false
+        
+        print("Полет выключен")
+    end
+end
+
+-- Отслеживание нажатий клавиш
+local keys = {
+    W = false,
+    A = false,
+    S = false,
+    D = false,
+    E = false,
+    Q = false
+}
+
+userinput.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    
+    if input.KeyCode == Enum.KeyCode.F then -- Нажмите F для включения/выключения полета
+        toggleFly()
+    end
+    
+    if flying then
+        if input.KeyCode == Enum.KeyCode.W then
+            keys.W = true
+        elseif input.KeyCode == Enum.KeyCode.A then
+            keys.A = true
+        elseif input.KeyCode == Enum.KeyCode.S then
+            keys.S = true
+        elseif input.KeyCode == Enum.KeyCode.D then
+            keys.D = true
+        elseif input.KeyCode == Enum.KeyCode.E then
+            keys.E = true
+        elseif input.KeyCode == Enum.KeyCode.Q then
+            keys.Q = true
+        end
+    end
+end)
+
+userinput.InputEnded:Connect(function(input, gameProcessed)
+    if flying then
+        if input.KeyCode == Enum.KeyCode.W then
+            keys.W = false
+        elseif input.KeyCode == Enum.KeyCode.A then
+            keys.A = false
+        elseif input.KeyCode == Enum.KeyCode.S then
+            keys.S = false
+        elseif input.KeyCode == Enum.KeyCode.D then
+            keys.D = false
+        elseif input.KeyCode == Enum.KeyCode.E then
+            keys.E = false
+        elseif input.KeyCode == Enum.KeyCode.Q then
+            keys.Q = false
+        end
+    end
+end)
+
+-- Обновление движения каждый кадр
+runservice.Heartbeat:Connect(function()
+    if flying and bodyvel and bodygyro then
+        local char = player.Character
+        if not char then return end
+        
+        local hrp = char:FindFirstChild("HumanoidRootPart")
+        if not hrp then return end
+        
+        -- Рассчитываем направление движения
+        local moveVec = Vector3.new(0, 0, 0)
+        
+        -- WASD движение
+        if keys.W then
+            moveVec = moveVec + (hrp.CFrame.LookVector * speed)
+        end
+        if keys.S then
+            moveVec = moveVec - (hrp.CFrame.LookVector * speed)
+        end
+        if keys.D then
+            moveVec = moveVec + (hrp.CFrame.RightVector * speed)
+        end
+        if keys.A then
+            moveVec = moveVec - (hrp.CFrame.RightVector * speed)
+        end
+        
+        -- Вертикальное движение
+        if keys.E then
+            moveVec = moveVec + Vector3.new(0, speed, 0)
+        end
+        if keys.Q then
+            moveVec = moveVec - Vector3.new(0, speed, 0)
+        end
+        
+        -- Применяем движение
+        bodyvel.Velocity = moveVec
+        bodygyro.CFrame = hrp.CFrame
+    end
+end)
+
+-- GUI уведомление
+print("Флай скрипт загружен! Нажмите F для включения/выключения")
+	end,
+})
 
 local Button = MainTab:CreateButton({
 	Name = "antik-Hed",
@@ -672,6 +837,189 @@ local Button = MainTab:CreateButton({
 	Name = "10000 ping",
 	Callback = function()     
 		game:GetService("NetworkClient"):SetOutgoingKBPSLimit(1)
+	end,
+})
+
+local Button = MainTab:CreateButton({
+	Name = "шар гаданий",
+	Callback = function()     
+		-- Создаем главный объект ScreenGui
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui")
+gui.Name = "MagicBallGUI"
+gui.ResetOnSpawn = false -- Чтобы GUI не исчезало при респавне
+gui.Parent = player:WaitForChild("PlayerGui")
+
+-- Переменные для перетаскивания
+local dragging = false
+local dragInput, dragStart, startPos
+
+-- Создаем главное окно (Frame)
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "MainFrame"
+mainFrame.Size = UDim2.new(0, 300, 0, 400) -- ширина 300, высота 400
+mainFrame.Position = UDim2.new(0.5, -150, 0.5, -200) -- по центру экрана
+mainFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
+mainFrame.BackgroundTransparency = 0.1
+mainFrame.Active = true
+mainFrame.Draggable = false -- Отключаем встроенное перетаскивание, сделаем своё через заголовок
+mainFrame.Parent = gui
+
+-- Скругление углов (необязательно, но красиво)
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 10)
+corner.Parent = mainFrame
+
+-- Заголовок (верхняя полоса для перетаскивания)
+local titleBar = Instance.new("Frame")
+titleBar.Name = "TitleBar"
+titleBar.Size = UDim2.new(1, 0, 0, 30)
+titleBar.BackgroundColor3 = Color3.fromRGB(25, 25, 35)
+titleBar.Parent = mainFrame
+
+-- Скругление только верхних углов у заголовка
+local titleCorner = Instance.new("UICorner")
+titleCorner.CornerRadius = UDim.new(0, 10)
+titleCorner.Parent = titleBar
+-- Но нам нужно скруглить именно верх, поэтому дополнительно скроем нижнюю часть
+-- (просто оставим как есть, будет выглядеть нормально)
+
+-- Текст заголовка
+local titleText = Instance.new("TextLabel")
+titleText.Name = "TitleText"
+titleText.Size = UDim2.new(1, 0, 1, 0)
+titleText.BackgroundTransparency = 1
+titleText.Text = "шар гаданий! задай вопрос в поле, и шар тебе ответит!"
+titleText.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleText.TextScaled = true
+titleText.Font = Enum.Font.GothamBold
+titleText.Parent = titleBar
+
+-- Поле для ввода вопроса
+local questionBox = Instance.new("TextBox")
+questionBox.Name = "QuestionBox"
+questionBox.Size = UDim2.new(0.8, 0, 0, 35)
+questionBox.Position = UDim2.new(0.1, 0, 0.12, 0) -- 10% слева, 12% сверху
+questionBox.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+questionBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+questionBox.PlaceholderText = "Введи вопрос..."
+questionBox.PlaceholderColor3 = Color3.fromRGB(180, 180, 180)
+questionBox.TextScaled = true
+questionBox.Font = Enum.Font.Gotham
+questionBox.ClearTextOnFocus = false
+questionBox.Parent = mainFrame
+
+-- Скругление поля ввода
+local boxCorner = Instance.new("UICorner")
+boxCorner.CornerRadius = UDim.new(0, 5)
+boxCorner.Parent = questionBox
+
+-- Круг ("шар")
+local ballButton = Instance.new("ImageButton")
+ballButton.Name = "BallButton"
+ballButton.Size = UDim2.new(0, 150, 0, 150)
+ballButton.Position = UDim2.new(0.5, -75, 0.5, -25) -- по центру, чуть выше середины
+ballButton.BackgroundColor3 = Color3.fromRGB(80, 80, 255)
+ballButton.Parent = mainFrame
+
+-- Делаем его круглым
+local ballCorner = Instance.new("UICorner")
+ballCorner.CornerRadius = UDim.new(1, 0) -- Максимальное скругление = круг
+ballCorner.Parent = ballButton
+
+-- Текст внутри круга (ответ)
+local answerText = Instance.new("TextLabel")
+answerText.Name = "AnswerText"
+answerText.Size = UDim2.new(1, 0, 1, 0)
+answerText.BackgroundTransparency = 1
+answerText.Text = "???" -- Начальный текст
+answerText.TextColor3 = Color3.fromRGB(255, 255, 255)
+answerText.TextScaled = true
+answerText.Font = Enum.Font.GothamBold
+answerText.Parent = ballButton
+
+-- Массив возможных ответов
+local answers = {"Да", "Нет"}
+
+-- Функция для получения случайного ответа
+local function getRandomAnswer()
+	return answers[math.random(1, #answers)]
+end
+
+-- Обработчик нажатия на шар
+ballButton.MouseButton1Click:Connect(function()
+	-- Получаем случайный ответ
+	local randomAnswer = getRandomAnswer()
+	answerText.Text = randomAnswer
+	
+	-- Небольшая анимация (эффект "встряски")
+	ballButton:TweenSize(UDim2.new(0, 160, 0, 160), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.1, true)
+	wait(0.1)
+	ballButton:TweenSize(UDim2.new(0, 150, 0, 150), Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.1, true)
+end)
+
+-- Кнопка закрытия (X) - необязательно, но удобно
+local closeButton = Instance.new("TextButton")
+closeButton.Name = "CloseButton"
+closeButton.Size = UDim2.new(0, 20, 0, 20)
+closeButton.Position = UDim2.new(1, -25, 0, 5)
+closeButton.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+closeButton.Text = "X"
+closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+closeButton.TextScaled = true
+closeButton.Font = Enum.Font.GothamBold
+closeButton.Parent = mainFrame
+
+-- Скругление кнопки закрытия
+local closeCorner = Instance.new("UICorner")
+closeCorner.CornerRadius = UDim.new(0, 5)
+closeCorner.Parent = closeButton
+
+-- Обработчик закрытия
+closeButton.MouseButton1Click:Connect(function()
+	gui:Destroy() -- Полностью удаляем GUI
+end)
+
+-- ---- МЕХАНИЗМ ПЕРЕТАСКИВАНИЯ (Drag) ----
+-- Активируется только при перетаскивании за заголовок
+
+local function updateDrag(input)
+	local delta = input.Position - dragStart
+	local newPosition = UDim2.new(
+		startPos.X.Scale, 
+		startPos.X.Offset + delta.X,
+		startPos.Y.Scale,
+		startPos.Y.Offset + delta.Y
+	)
+	mainFrame.Position = newPosition
+end
+
+titleBar.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+		dragging = true
+		dragStart = input.Position
+		startPos = mainFrame.Position
+		
+		input.Changed:Connect(function()
+			if input.UserInputState == Enum.UserInputState.End then
+				dragging = false
+			end
+		end)
+	end
+end)
+
+titleBar.InputChanged:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+		dragInput = input
+	end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+	if input == dragInput and dragging then
+		updateDrag(input)
+	end
+end)
+-- -----------------------------------------
 	end,
 })
 
