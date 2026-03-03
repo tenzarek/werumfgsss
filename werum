@@ -255,12 +255,52 @@ print("Водяной знак активирован! (werumfgsss)")
 -- Пример кода:
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
-local Window = Rayfield:CreateWindow({
-	Name = "werumfgsss hub",
-	Icon = 85374884354999,
-	LoadingTitle = "by skaneexx",
-	LoadingSubtitle = "Loading...",
-	Theme = "Defolt", 
+ local Window = Rayfield:CreateWindow({
+    Name = "werumfgsss hab",
+    Icon = 85374884354999, --122902840554492
+    LoadingTitle = "by AngelWings Team",
+    LoadingSubtitle = "Loading...", 
+    Theme = {
+    TextColor = Color3.fromRGB(255, 255, 255),
+    Background = Color3.fromRGB(10, 10, 10),
+    Topbar = Color3.fromRGB(15, 15, 15),
+    Shadow = Color3.fromRGB(255, 190, 40),
+    
+    NotificationBackground = Color3.fromRGB(15, 15, 15),
+    NotificationActionsBackground = Color3.fromRGB(255, 200, 0),
+    
+    TabBackground = Color3.fromRGB(20, 20, 20),
+    TabStroke = Color3.fromRGB(40, 40, 40),
+    TabBackgroundSelected = Color3.fromRGB(255, 200, 0),
+    TabTextColor = Color3.fromRGB(200, 200, 200),
+    SelectedTabTextColor = Color3.fromRGB(0, 0, 0),
+    
+    ElementBackground = Color3.fromRGB(20, 20, 20),
+    ElementBackgroundHover = Color3.fromRGB(30, 30, 30),
+    SecondaryElementBackground = Color3.fromRGB(15, 15, 15),
+    
+    ElementStroke = Color3.fromRGB(50, 50, 50),
+    SecondaryElementStroke = Color3.fromRGB(60, 60, 60),
+    
+    SliderBackground = Color3.fromRGB(30, 30, 30),
+    SliderProgress = Color3.fromRGB(255, 200, 0),
+    SliderStroke = Color3.fromRGB(255, 180, 0),
+    
+    ToggleBackground = Color3.fromRGB(25, 25, 25),
+    ToggleEnabled = Color3.fromRGB(255, 200, 0),
+    ToggleDisabled = Color3.fromRGB(70, 70, 70),
+    ToggleEnabledStroke = Color3.fromRGB(255, 220, 50),
+    ToggleDisabledStroke = Color3.fromRGB(100, 100, 100),
+    ToggleEnabledOuterStroke = Color3.fromRGB(255, 180, 0),
+    ToggleDisabledOuterStroke = Color3.fromRGB(60, 60, 60),
+    
+    DropdownSelected = Color3.fromRGB(255, 200, 0),
+    DropdownUnselected = Color3.fromRGB(25, 25, 25),
+    
+    InputBackground = Color3.fromRGB(20, 20, 20),
+    InputStroke = Color3.fromRGB(255, 180, 0),
+    PlaceholderColor = Color3.fromRGB(150, 150, 150)
+    },
 	DisableRayfieldPrompts = false,
 	DisableBuildWarnings = false, 
 	ConfigurationSaving = {
