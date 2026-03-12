@@ -363,6 +363,13 @@ local Button = MainTab:CreateButton({
 	end,
 })
 
+local Button = MainTab:CreateButton({
+	Name = "C00LK1D GUI",
+	Callback = function()     
+	loadstring(game:HttpGet("https://rscripts.net/raw/c00lkid-gui-v70_1751472157964_CEM77sQugd.txt",true))()
+	end,
+})
+
 local MainSection = MainTab:CreateSection("🏡 Custom AimBot")
 
 local Button = MainTab:CreateButton({
