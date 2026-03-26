@@ -197,6 +197,174 @@ if RunService:IsClient() then
 	-- Запускаем
 	task.wait(0.5)
 	playIntro()
+
+	local function CreateKeySystem()
+    local KeyGui = Instance.new("ScreenGui")
+    KeyGui.Name = "KeySystem"
+    KeyGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    KeyGui.IgnoreGuiInset = true
+    KeyGui.Parent = game.CoreGui
+
+    local MainFrame = Instance.new("Frame")
+    MainFrame.Name = "MainFrame"
+    MainFrame.Size = UDim2.new(0, 320, 0, 200)
+    MainFrame.Position = UDim2.new(0.5, -160, 0.5, -100)
+    MainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+    MainFrame.BorderSizePixel = 0
+    MainFrame.Parent = KeyGui
+
+    local UICorner = Instance.new("UICorner")
+    UICorner.CornerRadius = UDim.new(0, 8)
+    UICorner.Parent = MainFrame
+
+    local TopBar = Instance.new("Frame")
+    TopBar.Name = "TopBar"
+    TopBar.Size = UDim2.new(1, 0, 0, 3)
+    TopBar.Position = UDim2.new(0, 0, 0, 0)
+    TopBar.BackgroundColor3 = Color3.fromRGB(255, 192, 203)
+    TopBar.BorderSizePixel = 0
+    TopBar.Parent = MainFrame
+
+    local Title = Instance.new("TextLabel")
+    Title.Name = "Title"
+    Title.Size = UDim2.new(1, 0, 0, 40)
+    Title.Position = UDim2.new(0, 0, 0, 5)
+    Title.BackgroundTransparency = 1
+    Title.Text = "werumhab key system"
+    Title.TextColor3 = Color3.new(1, 1, 1)
+    Title.TextSize = 18
+    Title.Font = Enum.Font.GothamBold
+    Title.Parent = MainFrame
+
+    local KeyBox = Instance.new("TextBox")
+    KeyBox.Name = "KeyBox"
+    KeyBox.Size = UDim2.new(0, 280, 0, 35)
+    KeyBox.Position = UDim2.new(0.5, -140, 0.5, -50)
+    KeyBox.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    KeyBox.TextColor3 = Color3.new(1, 1, 1)
+    KeyBox.TextSize = 14
+    KeyBox.Font = Enum.Font.Gotham
+    KeyBox.PlaceholderText = "Enter key..."
+    KeyBox.PlaceholderColor3 = Color3.fromRGB(150, 150, 150)
+    KeyBox.ClearTextOnFocus = false
+    KeyBox.Parent = MainFrame
+
+    local KeyBoxCorner = Instance.new("UICorner")
+    KeyBoxCorner.CornerRadius = UDim.new(0, 6)
+    KeyBoxCorner.Parent = KeyBox
+
+    local InjectButton = Instance.new("TextButton")
+    InjectButton.Name = "InjectButton"
+    InjectButton.Size = UDim2.new(0, 280, 0, 35)
+    InjectButton.Position = UDim2.new(0.5, -140, 0.5, 0)
+    InjectButton.BackgroundColor3 = Color3.fromRGB(0, 150, 0)
+    InjectButton.TextColor3 = Color3.new(1, 1, 1)
+    InjectButton.TextSize = 14
+    InjectButton.Font = Enum.Font.GothamBold
+    InjectButton.Text = "INJECT"
+    InjectButton.Parent = MainFrame
+
+    local InjectButtonCorner = Instance.new("UICorner")
+    InjectButtonCorner.CornerRadius = UDim.new(0, 6)
+    InjectButtonCorner.Parent = InjectButton
+
+    local ErrorLabel = Instance.new("TextLabel")
+    ErrorLabel.Name = "ErrorLabel"
+    ErrorLabel.Size = UDim2.new(0, 280, 0, 20)
+    ErrorLabel.Position = UDim2.new(0.5, -140, 0.5, 40)
+    ErrorLabel.BackgroundTransparency = 1
+    ErrorLabel.Text = ""
+    ErrorLabel.TextColor3 = Color3.fromRGB(255, 50, 50)
+    ErrorLabel.TextSize = 12
+    ErrorLabel.Font = Enum.Font.Gotham
+    ErrorLabel.Visible = false
+    ErrorLabel.Parent = MainFrame
+
+    local Attempts = 0
+    local MaxAttempts = 3
+    local CorrectKey = "werummoyatelocka"
+
+    InjectButton.MouseButton1Click:Connect(function()
+        local enteredKey = KeyBox.Text
+        
+        if enteredKey == CorrectKey then
+            ErrorLabel.Text = "Success! Loading..."
+            ErrorLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+            ErrorLabel.Visible = true
+            
+            task.wait(1)
+            KeyGui:Destroy()
+            return true
+        else
+            Attempts = Attempts + 1
+            ErrorLabel.Text = "wrong key! (" .. Attempts .. "/" .. MaxAttempts .. ")"
+            ErrorLabel.TextColor3 = Color3.fromRGB(255, 50, 50)
+            ErrorLabel.Visible = true
+            
+            if Attempts >= MaxAttempts then
+                ErrorLabel.Text = "Too many attempts! Closing..."
+                task.wait(1)
+                KeyGui:Destroy()
+                return false
+            end
+        end
+        return nil
+    end)
+
+    InjectButton.MouseEnter:Connect(function()
+        game:GetService("TweenService"):Create(InjectButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 180, 0)}):Play()
+    end)
+
+    InjectButton.MouseLeave:Connect(function()
+        game:GetService("TweenService"):Create(InjectButton, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(0, 150, 0)}):Play()
+    end)
+
+    local function waitForValidKey()
+        local connection
+        local validKey = false
+        
+        connection = InjectButton.MouseButton1Click:Connect(function()
+            local enteredKey = KeyBox.Text
+            
+            if enteredKey == CorrectKey then
+                validKey = true
+                ErrorLabel.Text = "Success! Loading..."
+                ErrorLabel.TextColor3 = Color3.fromRGB(0, 255, 0)
+                ErrorLabel.Visible = true
+                
+                task.wait(1)
+                KeyGui:Destroy()
+                if connection then connection:Disconnect() end
+            else
+                Attempts = Attempts + 1
+                ErrorLabel.Text = "wrong key! (" .. Attempts .. "/" .. MaxAttempts .. ")"
+                ErrorLabel.TextColor3 = Color3.fromRGB(255, 50, 50)
+                ErrorLabel.Visible = true
+                
+                if Attempts >= MaxAttempts then
+                    ErrorLabel.Text = "Too many attempts! Closing..."
+                    task.wait(1)
+                    KeyGui:Destroy()
+                    if connection then connection:Disconnect() end
+                end
+            end
+        end)
+        
+        while KeyGui.Parent and not validKey and Attempts < MaxAttempts do
+            task.wait()
+        end
+        
+        return validKey
+    end
+    
+    return waitForValidKey()
+end
+
+local keyValid = CreateKeySystem()
+
+if not keyValid then
+    return
+end
 	
 	-- Обновляем позицию при изменении размера окна (на всякий случай)
 	workspace.CurrentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(function()
@@ -316,7 +484,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 		RememberJoins = true -- Set this to false to make them join the discord every time they load it up
 	},
 
-	KeySystem = true, -- Set this to true to use our key system
+	KeySystem = false, -- Set this to true to use our key system
 	KeySettings = {
 		Title = "werumfgsss key siski",
 		Subtitle = "Key System",
